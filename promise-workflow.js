@@ -1,7 +1,7 @@
 function asyncFunction() {
 	return new Promise(function (resolve, reject) {
 		setTimeout(function() {
-			resolve('Async Hello World');
+			resolve(new Error());
 		}, 16);
 	});
 }
