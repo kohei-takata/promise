@@ -2,13 +2,26 @@ var aPromise = new Promise(function (resolve) {
 	resolve(100);
 });
 
-var thenPromise = aPromise.then(function (value) {
-	console.log(value);
+aPromise.then(function (value) {
+	return value * 2;
 });
 
-var catchPromise = thenPromise.catch(function (error) {
-	console.error(error);
+aPromise.then(function (value) {
+	return value * 2;
 });
 
-console.log(aPromise !== thenPromise);
-console.log(thenPromise !== catchPromise);
+aPromise.then(function (value) {
+	console.log("1:" + value);
+});
+
+var bPromise = new Promise(function (resolve) {
+	resolve(100);
+});
+
+bPromise.then(function (value) {
+	return value * 2;
+}).then(function (value) {
+	return value * 2;
+}).then(function (value) {
+	console.log("2:" + value);
+});
