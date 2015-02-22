@@ -1,8 +1,8 @@
 var assert = require('assert');
 
-if('should use done for test?', function (done) {
+it('should use done for test?', function (done) {
 	var promise = Promise.resolve();
 	promise.then(function (value) {
-		assert(false);
+		assert(true);
 	}).then(done, done);
 });
